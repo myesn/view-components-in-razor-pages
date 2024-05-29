@@ -1,0 +1,11 @@
+﻿@page
+@using RazorPageTests.Pages.Shared.Components.Card
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@(await Component.InvokeAsync<CardViewComponent>())
+@* 方法签名只有一个参数时可以这样传递，当具有多个参数需要通过 `new {  }`对象进行传递 *@
+@(await Component.InvokeAsync<CardViewComponent>("hi"))
+@(await Component.InvokeAsync<CardViewComponent>(new { title = "myesn", titleFontColor = "red" }))
